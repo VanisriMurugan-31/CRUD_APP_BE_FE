@@ -1,11 +1,13 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, TextField, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function BookTable({ books, onDelete, onFilter }) {
+export default function BookTable({ books, onDelete, onFilter ,onClear,filterAuthor}) {
   return (
     <Box>
       <Box sx={{ display: "flex", gap: 2, marginBottom: 2 }}>
-        <TextField label="Filter by Author" variant="outlined" size="small" onChange={(e) => onFilter(e.target.value)} />
+        <TextField label="Filter" variant="outlined" size="small" value={filterAuthor} onChange={onFilter} />
+           <Button  variant="contained"
+        color="primary" onClick={onClear}>Clear</Button>
       </Box>
       <TableContainer component={Paper}>
         <Table>

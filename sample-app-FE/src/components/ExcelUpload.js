@@ -9,6 +9,9 @@ import { toast } from "react-toastify";
 export default function ExcelUpload({ onUploadSuccess }) {
   const [file, setFile] = useState(null);
   
+  const handleClear =()=>{
+    setFile(null);
+  }
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -67,7 +70,7 @@ export default function ExcelUpload({ onUploadSuccess }) {
       <Button
         variant="contained"
         color="primary"
-        onClick={()=>file()}
+        onClick={handleClear}
        
       >
         Clear

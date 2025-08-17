@@ -8,7 +8,12 @@ import axios from "axios";
 export default function HomePage() {
   const [books, setBooks] = useState([]);
   const [filterAuthor, setFilterAuthor] = useState("");
-
+const handleFilter=(e)=>{
+  setFilterAuthor(e.target.value);
+}
+const handleClear=()=>{
+  setFilterAuthor(" ")
+}
   const fetchBooks = async () => {
   try {
     const params = {};
@@ -44,7 +49,9 @@ export default function HomePage() {
       <BookTable
         books={books}
         onDelete={deleteBook}
-        onFilter={setFilterAuthor}
+        onFilter={handleFilter}
+        onClear={handleClear}
+        filterAuthor={filterAuthor}
       />
     </div>
   );
